@@ -1,0 +1,22 @@
+<div id="header">
+	<table>
+	<tr>
+<th><%= link_to "home", books_path %></th>
+
+<% if user_signed_in? %>
+<th><%= link_to "users", books_path %></th>
+
+<th><%= link_to "books", books_path %></th>
+
+<th><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></th>
+
+<% else %>
+
+<th><%= link_to "新規登録", new_user_registration_path %></th>
+
+<th><%= link_to "ログイン", new_user_session_path %></th>
+
+<% end %>
+</tr>
+</table>
+</div>
