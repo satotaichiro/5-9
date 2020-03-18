@@ -1,2 +1,15 @@
 <h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+
+<p>Title:</p>
+<span><%= link_to book_path(@book.id) do %>
+	<%= @book.title %>
+	<% end %>
+</span>
+<p>Body:</p>
+<span><%= @book.body %></span>
+<br></br>
+<br>
+<% if current_user.id == @book.user_id %>
+	<%= link_to 'edit',edit_book_path(@book.id) %>
+	<%= link_to 'destroy',book_path(@book.id) %>
+		<% end %>
