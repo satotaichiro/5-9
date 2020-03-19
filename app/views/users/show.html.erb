@@ -1,4 +1,6 @@
 <h1>User info</h1>
+<div><%= image_tag attachment_url(@user, :profile_image, :fill, 100, 100, format: "jpg", fallback: "no_image.jpg") %></div>
+
 <div>name:<%= @user.name %></div>
 
 <div>introduction:<%= @user.introduction %></div>

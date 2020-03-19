@@ -26,6 +26,9 @@ end
   end
 
   def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to books_path
   end
 
   def top
@@ -34,6 +37,7 @@ end
 def update
     book = Book.find(params[:id])
   if book.update(book_params)
+    flash[:update] = 'You have updated book succcessfully.'
     redirect_to book_path(book), notice: 'Book was successfully created.'
   else
     render action: :index

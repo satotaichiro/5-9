@@ -11,5 +11,5 @@
 <br>
 <% if current_user.id == @book.user_id %>
 	<%= link_to 'edit',edit_book_path(@book.id) %>
-	<%= link_to 'destroy',book_path(@book.id) %>
+	<%= link_to 'destroy', book_path(@book.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?" } %>
 		<% end %>
