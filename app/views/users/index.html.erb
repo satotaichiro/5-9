@@ -1,3 +1,5 @@
+<%= render'books/list',book:@book ,user:@user %>
+
 <h2>Users</h2>
 
 	<table>
@@ -6,12 +8,12 @@
 	</tr>
 
 	<!--取得・一覧のリストをここに出す-->
-	<% @users.each do |user| %>
+	<% @users.each do |users| %>
 	<tbody>
 	<tr>
-		<td><%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: "jpg", fallback: "no-image-icon.jpg" %></td>
-		<td><%= user.name %></td>
-		<td><%= link_to "show", user_path(user.id) %>
+		<td><%= attachment_image_tag users, :profile_image, :fill, 60, 60, format: "jpg", fallback: "no-image-icon.jpg" %></td>
+		<td><%= users.name %></td>
+		<td><%= link_to "show", user_path(users.id) %>
 		</td>
 	</tr>
 	</tbody>

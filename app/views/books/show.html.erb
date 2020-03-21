@@ -1,5 +1,8 @@
+<%= render'books/list',book:@book ,user:@user %>
+
 <h1>Books#show</h1>
 
+<p><%= link_to @user.name, user_path(@book) %></p>
 <p>Title:</p>
 <span><%= link_to book_path(@book.id) do %>
 	<%= @book.title %>

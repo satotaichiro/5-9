@@ -1,22 +1,27 @@
-<div id="header">
-	<table>
-	<tr>
-<th><%= link_to "home", books_path %></th>
+<h1>User info</h1>
+<div><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: "jpg", fallback: "no-image-icon.jpg" %></div>
 
-<% if user_signed_in? %>
-<th><%= link_to "users", books_path %></th>
+<div>name:<%= user.name %></div>
 
-<th><%= link_to "books", books_path %></th>
+<div>introduction:<%= user.introduction %></div>
 
-<th><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></th>
+<%= link_to "edit",edit_user_path(user.id) %>
 
-<% else %>
+<h2>New book</h2>
+<%= form_for(book) do |f| %>
 
-<th><%= link_to "新規登録", new_user_registration_path %></th>
+<% if @book.errors.any? %>
+    <%= @book.errors.count %> errors prohibited this book from being saved:
+      <% @book.errors.full_messages.each do |message| %>
+      <%= message %>
+      <% end %>
+  <% end %>
 
-<th><%= link_to "ログイン", new_user_session_path %></th>
+<h4>Title</h4>
+<%= f.text_field :title %>
 
+<h4>Body</h4>
+<%= f.text_field :body %>
+
+<%= f.submit 'Create Book' %>
 <% end %>
-</tr>
-</table>
-</div>
