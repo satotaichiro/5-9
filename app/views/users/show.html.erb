@@ -1,21 +1,33 @@
-<%= render'books/list',book:@book ,user:@user %>
-<h1>Books</h1>
-<table>
-	<tr>
-		<th>Title</th>
-		<th>Opinion</th>
-	</tr>
+<div class="container">
+	<div class="row">
 
-	<% @books.each do |book| %>
-	<tbody>
-	<tr>
-		<td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: "jpg", fallback: "no-image-icon.jpg" %></td>
-		<td><%= link_to book_path(book.id) do %>
-			<%= book.title %>
-			<% end %>
-			</td>
-		<td><%= book.body %></td>
-	</tr>
-	</tbody>
-	<% end %>
-</table>
+		<%= render'books/list',book:@book ,user:@user %>
+		<div class="main-list col-lg-9">
+
+			<div class="books">
+				<h1>Books</h1>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th class="col-lg-3"></th>
+							<th class="col-lg-4">Title</th>
+							<th class="col-lg-5">Opinion</th>
+						</tr>
+					</thead>
+					<% @books.each do |book| %>
+					<tbody>
+						<tr>
+						 <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: "jpg", fallback: "no-image-icon.jpg" %></td>
+						 <td><%= link_to book_path(book.id) do %>
+							 <%= book.title %>
+							 <% end %>
+					 	 </td>
+					 	 <td><%= book.body %></td>
+					 	</tr>
+					 </tbody>
+					 <% end %>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

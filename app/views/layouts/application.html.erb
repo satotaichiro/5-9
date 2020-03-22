@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Book</title>
+    <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,36 +10,29 @@
   </head>
 
   <body>
-    <div id="header">
-  <table>
-  <tr>
-<th>Bookers</th>
-
-<% if user_signed_in? %>
-<th><%= link_to "Home", user_path(current_user.id) %></th>
-
-<th><%= link_to "Users", users_path %></th>
-
-<th><%= link_to "Books", books_path %></th>
-
-<th><%= link_to "logout", destroy_user_session_path, method: :delete %></th>
-
-<% else %>
-<th><%= link_to " Home", root_path%> </th>
-
-<th><%= link_to " About", home_about_path %> </th>
-
-<th><%= link_to "Sign up", new_user_registration_path %></th>
-
-<th><%= link_to "login", new_user_session_path %></th>
-
-<% end %>
-</tr>
-</table>
-</div>
+   <header class="navbar navbar-inverse">
+    <div class="container container-fluid">
+      <div class="nav navbar-left">
+        <h3>Bookers</h3>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+        <li><%= link_to "Home", user_path(current_user.id) %></li>
+        <li><%= link_to "Users", users_path %></li>
+        <li><%= link_to "Books", books_path %></li>
+        <li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+        <li><%= link_to " Home", root_path%> </li>
+        <li><%= link_to " About", home_about_path %> </li>
+        <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <li><%= link_to "login", new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </header>
 
 <%= flash[:notice] %>
 
-    <%= yield %>
+  <%= yield %>
   </body>
 </html>

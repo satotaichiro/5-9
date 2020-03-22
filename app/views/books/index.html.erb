@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
       <%= render'books/list',book:@book ,user:current_user %>
-        <div class="main_list col-lg-8">
+        <div class="main_list col-lg-9">
         	<div class="Books">
                 <h2>Books</h2>
         		<table class="table table-striped">
         			<thead>
         				<tr>
         					<th class="col-lg-3"></th>
-        					<th class="col-lg-5">Title</th>
+        					<th class="col-lg-4">Title</th>
         					<th class="col-lg-5">Opinion</th>
         				</tr>
         			</thead>
@@ -17,7 +17,7 @@
         				<tr>
         					<td>
         						<%= link_to (book.user) do %>
-        						<%= attachment_image_tag book.user, :profile_image, :fill, 80, 80, format: "jpg", fallback: "no_image.jpg" %>
+        						<%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, format: "jpg", fallback: "no-image-icon.jpg" %>
         						<% end %>
         					</td>
         					<td><%= link_to book.title, book_path(book.id) %></td>

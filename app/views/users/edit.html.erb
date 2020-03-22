@@ -1,23 +1,37 @@
-<h1>User info edit</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3">
+			<h2>User info</h2>
 
-<%= form_for(@user) do |f| %>
+			<%= form_for(@user) do |f| %>
 
-<% if @user.errors.any? %>
-    <%= @user.errors.count %> errors prohibited this book from being saved:
-      <% @user.errors.full_messages.each do |message| %>
-      <%= message %>
-      <% end %>
-  <% end %>
+			<% if @user.errors.any? %>
+			<%= @user.errors.count %> errors prohibited this book from being saved:
+			<% @user.errors.full_messages.each do |message| %>
+			<%= message %>
+			<% end %>
+			<% end %>
 
-<p>Name</p>
-<%= f.text_field :name %>
+			<p class="row">
+				<div>Name<%= f.text_field :name %></div>
+			</p>
 
-<p>Image</p>
-<%= f.attachment_field :profile_image %>
+			<p class="row">
+				<div>Image</div>
+				<%= f.attachment_field :profile_image %>
+			</p>
 
-<p>introduction</p>
-<%= f.text_area :introduction %>
+			<p class="row">
+				<div>introduction<%= f.text_area :introduction %></div>
+			</p>
 
-<%= f.submit 'Update User' %>
-<% end %>
+			<p class="row">
+				<div>
+					<%= f.submit 'Update User' %>
+					<% end %>
+				</div>
+			</p>
+		</div>
+	</div>
+</div>
 
