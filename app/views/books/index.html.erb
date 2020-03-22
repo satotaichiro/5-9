@@ -1,15 +1,15 @@
 <div class="container">
   <div class="row">
       <%= render'books/list',book:@book ,user:current_user %>
-        <div class="main_list col-lg-9">
+        <div class="main_list col-xs-9">
         	<div class="Books">
                 <h2>Books</h2>
         		<table class="table table-striped">
         			<thead>
         				<tr>
-        					<th class="col-lg-3"></th>
-        					<th class="col-lg-4">Title</th>
-        					<th class="col-lg-5">Opinion</th>
+        					<th class="col-xs-3"></th>
+        					<th class="col-xs-4">Title</th>
+        					<th class="col-xs-5">Opinion</th>
         				</tr>
         			</thead>
         			<% @books.each do |book| %>
