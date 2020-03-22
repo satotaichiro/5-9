@@ -1,27 +1,51 @@
-<h1>User info</h1>
-<div><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: "jpg", fallback: "no-image-icon.jpg" %></div>
 
-<div>name:<%= user.name %></div>
+<div class="side-bar col-lg-3">
+	<div class="User info">
+		<h2>User info</h2>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+				 <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: "jpg", fallback: "no-image-icon.jpg" %>
+				</tr>
+			    <tr>
+				 <th>name</th>
+				 <th><%= user.name %></th>
+			    </tr>
+			    <tr>
+				 <th>introduction:</th>
+				 <th><%= user.introduction %></th>
+			    </tr>
+			</thead>
+		</table>
+		<div class="row">
+			<%= link_to "edit",edit_user_path(user.id) ,class: "btn btn-default btn-block" %>
+		</div>
+	</div>
+    <div class="New_book">
+	 <h2>New book</h2>
+	 <%= form_for(book) do |f| %>
 
-<div>introduction:<%= user.introduction %></div>
+	 <% if @book.errors.any? %>
+     <%= @book.errors.count %> errors prohibited this book from being saved:
+       <% @book.errors.full_messages.each do |message| %>
+         <%= message %>
+       <% end %>
+     <% end %>
 
-<%= link_to "edit",edit_user_path(user.id) %>
+     <p class="row">
+    	<div class="title">Title</div>
+    	<%= f.text_field :title, class: "col-lg-12 form-control" %>
+     </p>
+     <p class="row">
+    	<div class="body">Body</div>
+    	<%= f.text_area :body, class: "col-lg-12 form-control" %>
+     </p>
 
-<h2>New book</h2>
-<%= form_for(book) do |f| %>
-
-<% if @book.errors.any? %>
-    <%= @book.errors.count %> errors prohibited this book from being saved:
-      <% @book.errors.full_messages.each do |message| %>
-      <%= message %>
-      <% end %>
-  <% end %>
-
-<h4>Title</h4>
-<%= f.text_field :title %>
-
-<h4>Body</h4>
-<%= f.text_field :body %>
-
-<%= f.submit 'Create Book' %>
-<% end %>
+     <p class="row">
+     	<div>
+    	<%= f.submit 'Create Book', class: "btn btn-primary btn-block" %>
+	    </div>
+     </p>
+     <% end %>
+    </div>
+</div>

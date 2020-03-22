@@ -13,6 +13,7 @@
     <div id="header">
   <table>
   <tr>
+<th>Bookers</th>
 
 <% if user_signed_in? %>
 <th><%= link_to "Home", user_path(current_user.id) %></th>
@@ -28,7 +29,7 @@
 
 <th><%= link_to " About", home_about_path %> </th>
 
-<th><%= link_to "Sign_up", new_user_registration_path %></th>
+<th><%= link_to "Sign up", new_user_registration_path %></th>
 
 <th><%= link_to "login", new_user_session_path %></th>
 
@@ -38,7 +39,6 @@
 </div>
 
 <%= flash[:notice] %>
-<%= flash[:update] %>
 
     <%= yield %>
   </body>

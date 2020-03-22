@@ -13,7 +13,7 @@
 	<tr>
 		<td><%= attachment_image_tag users, :profile_image, :fill, 60, 60, format: "jpg", fallback: "no-image-icon.jpg" %></td>
 		<td><%= users.name %></td>
-		<td><%= link_to "show", user_path(users.id) %>
+		<td><%= link_to "Show", user_path(users.id) %>
 		</td>
 	</tr>
 	</tbody>
